@@ -1,1028 +1,910 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pure Carbon | Carbon Credit Sourcing, Advisory & Trading Platform</title>
-    <meta name="description" content="Carbon credit sourcing, advisory, and trading platform for corporates and project developers. Verified credits. Optimal pricing. Long-term supply strategies.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koti Resorts — Shimla's Crown Jewel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <i class="fas fa-leaf"></i>
-                    <span>Pure Carbon</span>
-                </div>
-                <div class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#for-buyers" class="nav-link">For Buyers</a></li>
-                    <li><a href="#for-developers" class="nav-link">For Developers</a></li>
-                    <li><a href="#why-us" class="nav-link">Why Us</a></li>
-                    <li><a href="#team" class="nav-link">Our Team</a></li>
-                    <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="#contact" class="nav-link btn-contact">Contact</a></li>
-                </ul>
-            </div>
+
+  <!-- ============ CURSOR ============ -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">KOTI</div>
+      <div class="loader-line"><span></span></div>
+      <div class="loader-text">Preparing your escape...</div>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">✦</span>
+      <div>
+        <div class="logo-main">KOTI RESORTS</div>
+        <div class="logo-sub">Shimla, Himachal Pradesh</div>
+      </div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#vibe">Your Vibe</a></li>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#dining">Dining</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta">Book Now</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ============ STICKY BOOKING BAR ============ -->
+  <div class="sticky-bar" id="sticky-bar">
+    <div class="sticky-inner">
+      <div class="sticky-group">
+        <label>Check In</label>
+        <input type="date" id="checkin" />
+      </div>
+      <div class="sticky-divider"></div>
+      <div class="sticky-group">
+        <label>Check Out</label>
+        <input type="date" id="checkout" />
+      </div>
+      <div class="sticky-divider"></div>
+      <div class="sticky-group">
+        <label>Guests</label>
+        <select>
+          <option>1 Guest</option>
+          <option>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4+ Guests</option>
+        </select>
+      </div>
+      <button class="sticky-btn" onclick="handleBooking()">Check Availability</button>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-layer layer-1"></div>
+      <div class="hero-layer layer-2"></div>
+      <div class="hero-layer layer-3"></div>
+    </div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Member of Radisson Individuals Retreats · Est. 1985
+      </div>
+      <h1 class="hero-title reveal-up">
+        <span class="title-small">Where the</span>
+        <span class="title-big">Himalayas</span>
+        <span class="title-italic">embrace you</span>
+      </h1>
+      <p class="hero-desc reveal-up">
+        Perched at 7,000 ft above sea level in Shimla, Koti Resorts is your private sanctuary among the clouds — a 4-star retreat where luxury meets the wild, untamed Himalayas.
+      </p>
+      <div class="hero-actions reveal-up">
+        <a href="#rooms" class="btn-primary">
+          <span>Explore Rooms</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#experiences" class="btn-ghost">
+          <i class="fa-solid fa-play"></i>
+          <span>Watch the Story</span>
+        </a>
+      </div>
+      <div class="hero-stats reveal-up">
+        <div class="stat">
+          <div class="stat-num" data-count="4.9">0</div>
+          <div class="stat-label">★ Rating</div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Carbon Credit Sourcing, Advisory & Trading Platform</h1>
-                <p class="hero-subtitle">For Corporates and Project Developers</p>
-                <p class="hero-description">Verified credits. Optimal pricing. Long-term supply strategies. We help corporates achieve Net Zero through verified carbon credit sourcing and procurement, while guiding project developers to maximize their carbon credit revenue.</p>
-                
-                <!-- Dual Path Navigation -->
-                <div class="hero-dual-path">
-                    <a href="#for-buyers" class="path-card path-buyers">
-                        <i class="fas fa-building"></i>
-                        <h3>I'm a Corporate Buyer</h3>
-                        <p>Access high-quality verified credits, optimize pricing, ensure stable supply</p>
-                        <span class="path-arrow">Explore Sourcing Solutions <i class="fas fa-arrow-right"></i></span>
-                    </a>
-                    <a href="#for-developers" class="path-card path-developers">
-                        <i class="fas fa-industry"></i>
-                        <h3>I'm a Project Developer</h3>
-                        <p>Maximize revenue, navigate compliance, reach buyers efficiently</p>
-                        <span class="path-arrow">Start Project Assessment <i class="fas fa-arrow-right"></i></span>
-                    </a>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-certificate"></i>
-                        <div>
-                            <h3>250,000+</h3>
-                            <p>Annual VCUs Managed</p>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-project-diagram"></i>
-                        <div>
-                            <h3>15+ Projects</h3>
-                            <p>Across 4 Sectors</p>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-chart-line"></i>
-                        <div>
-                            <h3>10,000-100,000+</h3>
-                            <p>Credits Sourcing Capacity</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="stat-line"></div>
+        <div class="stat">
+          <div class="stat-num" data-count="2400">0</div>
+          <div class="stat-label">Happy Guests</div>
         </div>
-    </section>
-
-    <!-- Value Proposition Section -->
-    <section class="value-props">
-        <div class="container">
-            <div class="value-grid">
-                <div class="value-card value-buyers">
-                    <div class="value-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>For Corporate Buyers</h3>
-                    <p>High-quality sourcing + price optimization + supply certainty for your Net Zero commitments</p>
-                    <ul class="value-list">
-                        <li><i class="fas fa-check"></i>ESG-aligned portfolio sourcing</li>
-                        <li><i class="fas fa-check"></i>Competitive market pricing</li>
-                        <li><i class="fas fa-check"></i>Long-term supply contracts</li>
-                        <li><i class="fas fa-check"></i>Registry compliance support</li>
-                    </ul>
-                    <a href="#for-buyers" class="btn btn-outline">Learn More</a>
-                </div>
-
-                <div class="value-card value-developers">
-                    <div class="value-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>For Project Developers</h3>
-                    <p>End-to-end support + market access + maximized monetization for your carbon projects</p>
-                    <ul class="value-list">
-                        <li><i class="fas fa-check"></i>Complete lifecycle management</li>
-                        <li><i class="fas fa-check"></i>Direct buyer network access</li>
-                        <li><i class="fas fa-check"></i>Revenue optimization</li>
-                        <li><i class="fas fa-check"></i>Technical & compliance support</li>
-                    </ul>
-                    <a href="#for-developers" class="btn btn-outline">Learn More</a>
-                </div>
-
-                <div class="value-card value-platform">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Our Platform Advantage</h3>
-                    <p>Asset-light model + verified quality + market expertise connecting both sides</p>
-                    <ul class="value-list">
-                        <li><i class="fas fa-check"></i>No inventory risk or holding costs</li>
-                        <li><i class="fas fa-check"></i>Direct project relationships</li>
-                        <li><i class="fas fa-check"></i>Real-time market intelligence</li>
-                        <li><i class="fas fa-check"></i>Verra VCS & Gold Standard expertise</li>
-                    </ul>
-                    <a href="#why-us" class="btn btn-outline">Why Choose Us</a>
-                </div>
-            </div>
+        <div class="stat-line"></div>
+        <div class="stat">
+          <div class="stat-num" data-count="38">0</div>
+          <div class="stat-label">Years of Magic</div>
         </div>
-    </section>
-
-    <!-- For Corporate Buyers Section -->
-    <section id="for-buyers" class="for-buyers">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag section-tag-buyers">For Corporate Buyers</span>
-                <h2>Achieve Net Zero Through Strategic Carbon Procurement</h2>
-                <p>High-quality verified credit sourcing with optimal pricing and long-term supply security</p>
-            </div>
-
-            <div class="services-grid buyer-services">
-                <div class="service-card">
-                    <div class="service-icon service-icon-buyers">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Portfolio Sourcing & Strategy</h3>
-                    <p>We identify and source high-quality verified credits matching your ESG and climate commitments:</p>
-                    <ul>
-                        <li>Net-zero offset planning and roadmap development</li>
-                        <li>Credit quality assessment and co-benefits analysis</li>
-                        <li>Portfolio optimization across registries (Verra, Gold Standard, others)</li>
-                        <li>Geography and methodology fit analysis</li>
-                        <li>ESG reporting and disclosure support</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-buyers">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h3>Volume Sourcing Capability</h3>
-                    <p>Direct relationships with project developers for competitive access:</p>
-                    <ul>
-                        <li>10,000–100,000+ credits annually sourcing capacity</li>
-                        <li>Direct project owner relationships for exclusive access</li>
-                        <li>Aggregation across multiple projects for volume efficiency</li>
-                        <li>Flexible portfolio sizing from test (1,000 credits) to enterprise scale</li>
-                        <li>Multiple vintage availability and forward contracting</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-buyers">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Price Optimization & Market Intelligence</h3>
-                    <p>Leverage our market expertise for competitive procurement:</p>
-                    <ul>
-                        <li>Real-time VCM pricing insights and trend analysis</li>
-                        <li>Negotiation support to secure optimal market prices</li>
-                        <li>Supply-demand forecasting for entry point optimization</li>
-                        <li>Cost-benefit analysis across credit types and vintages</li>
-                        <li>Procurement risk management strategies</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-buyers">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Long-Term Supply Contracts</h3>
-                    <p>Secure stable supply and locked-in pricing through multi-year agreements:</p>
-                    <ul>
-                        <li>Multi-year offtake agreements with project developers</li>
-                        <li>Price stability through forward contracts and volume commitments</li>
-                        <li>Back-to-back trading facilitation and risk mitigation</li>
-                        <li>Delivery assurance and contingency planning</li>
-                        <li>Contract negotiation and legal support</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-buyers">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Registry & Compliance Support</h3>
-                    <p>Navigate carbon credit registries and ensure compliance:</p>
-                    <ul>
-                        <li>Verra VCS, Gold Standard, and other registry navigation</li>
-                        <li>Credit retirement and transfer management</li>
-                        <li>Verification of credit quality and additionality</li>
-                        <li>ESG disclosure and reporting (CDP, GRI, TCFD)</li>
-                        <li>Audit support and documentation management</li>
-                    </ul>
-                </div>
-
-                <div class="service-card highlight">
-                    <div class="service-icon service-icon-buyers">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>End-to-End Carbon Procurement</h3>
-                    <p>Complete procurement lifecycle management:</p>
-                    <ul>
-                        <li>Initial carbon footprint and offset needs assessment</li>
-                        <li>Sourcing strategy development and execution</li>
-                        <li>Ongoing portfolio monitoring and rebalancing</li>
-                        <li>Annual procurement planning and forecasting</li>
-                        <li>Stakeholder communication and ESG reporting</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="cta-box cta-buyers">
-                <h3>Ready to Build Your Carbon Credit Portfolio?</h3>
-                <p>Schedule a strategy call to discuss your Net Zero targets and procurement needs</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Request Portfolio Assessment</a>
-                    <a href="#case-studies" class="btn btn-secondary">View Buyer Case Studies</a>
-                </div>
-            </div>
+        <div class="stat-line"></div>
+        <div class="stat">
+          <div class="stat-num" data-count="15">0</div>
+          <div class="stat-label">Awards Won</div>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+    <div class="hero-overlay-text">KOTI RESORTS</div>
+  </section>
 
-    <!-- For Developers Section -->
-    <section id="for-developers" class="for-developers">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag section-tag-developers">For Project Developers</span>
-                <h2>Maximize Your Carbon Credit Revenue & Market Reach</h2>
-                <p>End-to-end project development from feasibility to credit monetization</p>
-            </div>
-
-            <div class="services-grid developer-services">
-                <div class="service-card">
-                    <div class="service-icon service-icon-developers">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Carbon Project Feasibility Assessment</h3>
-                    <p>Evaluate project viability and carbon credit revenue potential:</p>
-                    <ul>
-                        <li>Project eligibility screening against Verra and Gold Standard criteria</li>
-                        <li>Preliminary additionality assessment and barrier analysis</li>
-                        <li>Methodology selection and applicability review</li>
-                        <li>Baseline scenario analysis and emission calculations</li>
-                        <li>Credit volume projections and revenue modeling</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-developers">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>PDD Development & Validation Support</h3>
-                    <p>Complete Project Design Document preparation and validation coordination:</p>
-                    <ul>
-                        <li>Project description and boundary definition</li>
-                        <li>Baseline and emission reduction calculations</li>
-                        <li>Additionality demonstration and compliance documentation</li>
-                        <li>Monitoring plan and parameter identification</li>
-                        <li>VVB coordination and validation support</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-developers">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>MRV & Verification Management</h3>
-                    <p>Monitoring, Reporting, and Verification for credit issuance:</p>
-                    <ul>
-                        <li>Monitoring system design and data collection protocols</li>
-                        <li>Data management, QA/QC, and reporting templates</li>
-                        <li>Monitoring report preparation and submission</li>
-                        <li>Verification coordination and audit support</li>
-                        <li>Credit issuance tracking and registry management</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-developers">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Buyer Network & Market Access</h3>
-                    <p>Connect with corporate buyers and maximize credit monetization:</p>
-                    <ul>
-                        <li>Direct access to corporate buyer network and demand pipeline</li>
-                        <li>Buyer identification and matchmaking services</li>
-                        <li>Offtake agreement negotiation and structuring</li>
-                        <li>Forward sales and long-term supply contracts</li>
-                        <li>Market pricing intelligence and timing optimization</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon service-icon-developers">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3>Revenue Optimization & Sales Strategy</h3>
-                    <p>Strategic support for credit monetization and pricing:</p>
-                    <ul>
-                        <li>VCM pricing trend analysis and market positioning</li>
-                        <li>Sale strategy development (spot vs. forward, bundled vs. unbundled)</li>
-                        <li>Vintage and co-benefit premium optimization</li>
-                        <li>Multi-buyer diversification strategies</li>
-                        <li>Contract review and payment terms negotiation</li>
-                    </ul>
-                </div>
-
-                <div class="service-card highlight">
-                    <div class="service-icon service-icon-developers">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>End-to-End Project Management</h3>
-                    <p>Complete lifecycle support from concept to monetization:</p>
-                    <ul>
-                        <li>Integrated project management across all phases</li>
-                        <li>Registry submission (Verra VCS / Gold Standard)</li>
-                        <li>Timeline management and milestone tracking</li>
-                        <li>Quality assurance and compliance oversight</li>
-                        <li>Long-term credit marketing and sales support</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Project Sectors -->
-            <div class="sectors-showcase">
-                <h3>Project Sectors We Support</h3>
-                <div class="sectors-grid-compact">
-                    <div class="sector-compact">
-                        <i class="fas fa-solar-panel"></i>
-                        <h4>Renewable Energy</h4>
-                        <p>Solar, wind, hydro, biomass</p>
-                    </div>
-                    <div class="sector-compact">
-                        <i class="fas fa-recycle"></i>
-                        <h4>Waste & Biogas</h4>
-                        <p>Landfill gas, wastewater treatment</p>
-                    </div>
-                    <div class="sector-compact">
-                        <i class="fas fa-lightbulb"></i>
-                        <h4>Energy Efficiency</h4>
-                        <p>Industrial optimization, cogeneration</p>
-                    </div>
-                    <div class="sector-compact">
-                        <i class="fas fa-tree"></i>
-                        <h4>AFOLU</h4>
-                        <p>Afforestation, sustainable agriculture</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-box cta-developers">
-                <h3>Ready to Develop Your Carbon Project?</h3>
-                <p>Start with a free feasibility assessment to evaluate your project's carbon credit potential</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Begin Feasibility Assessment</a>
-                    <a href="#case-studies" class="btn btn-secondary">View Developer Case Studies</a>
-                </div>
-            </div>
+  <!-- ============ VIBE CHECK ============ -->
+  <section class="vibe" id="vibe">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-tag">✦ Choose Your Escape</div>
+        <h2 class="section-title">What's Your <em>Vibe?</em></h2>
+        <p class="section-desc">Every guest deserves a tailored experience. Pick your vibe and discover your perfect stay.</p>
+      </div>
+      <div class="vibe-cards">
+        <div class="vibe-card active reveal-up" data-vibe="family" onclick="setVibe(this, 'family')">
+          <div class="vibe-icon">👨‍👩‍👧‍👦</div>
+          <h3>Family Escape</h3>
+          <p>Spacious rooms, kids activities, mountain treks & cozy family dining</p>
+          <div class="vibe-tags">
+            <span>Family Rooms</span>
+            <span>Kids Zone</span>
+            <span>Safe Trails</span>
+          </div>
+          <div class="vibe-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section id="why-us" class="why-us">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Why Choose Pure Carbon</span>
-                <h2>Your Trusted Carbon Advisory & Trading Partner</h2>
-                <p>Business advantages that set us apart from traditional consultancies</p>
-            </div>
-
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-feather-alt"></i>
-                    </div>
-                    <h3>Asset-Light Sourcing Model</h3>
-                    <p>No inventory holding costs or capital risk. Our direct project relationships eliminate intermediaries and reduce procurement costs for buyers while maximizing returns for developers.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Verified Quality Screening</h3>
-                    <p>Deep technical expertise in Verra VCS and Gold Standard methodologies ensures credits are high-integrity, additional, and low-risk. Every credit undergoes rigorous quality assessment.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>Direct Developer Network</h3>
-                    <p>Proprietary relationships with 15+ project owners across renewable energy, waste, efficiency, and AFOLU sectors provide competitive pricing and exclusive access for buyers.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Market Price Intelligence</h3>
-                    <p>Real-time insights on VCM pricing trends, supply-demand dynamics, and optimal entry points. We track pricing across registries, methodologies, and vintages.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>End-to-End Support</h3>
-                    <p>From strategy development through credit retirement (for buyers) or from feasibility through monetization (for developers). Single point of contact for complete lifecycle management.</p>
-                </div>
-
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-sliders-h"></i>
-                    </div>
-                    <h3>Flexible Volume Capability</h3>
-                    <p>From small test portfolios (1,000 credits) to enterprise-scale sourcing (100,000+ annually). Scalable solutions for organizations at any stage of their Net Zero journey.</p>
-                </div>
-            </div>
-
-            <div class="metrics-showcase">
-                <h3>Our Track Record</h3>
-                <div class="metrics-grid">
-                    <div class="metric-item">
-                        <h4>250,000+</h4>
-                        <p>Annual VCUs Managed Across Portfolio</p>
-                    </div>
-                    <div class="metric-item">
-                        <h4>15+ Projects</h4>
-                        <p>Developed & Managed Across 4 Sectors</p>
-                    </div>
-                    <div class="metric-item">
-                        <h4>5+ Years</h4>
-                        <p>Carbon Market Experience & Expertise</p>
-                    </div>
-                    <div class="metric-item">
-                        <h4>100% Success</h4>
-                        <p>Validation Rate for Submitted Projects</p>
-                    </div>
-                </div>
-            </div>
+        <div class="vibe-card reveal-up" data-vibe="couple" onclick="setVibe(this, 'couple')">
+          <div class="vibe-icon">💑</div>
+          <h3>Couple's Retreat</h3>
+          <p>Candlelit dinners, couple spa, sunset balconies & romantic mountain views</p>
+          <div class="vibe-tags">
+            <span>Honeymoon Suite</span>
+            <span>Couple Spa</span>
+            <span>Private Dining</span>
+          </div>
+          <div class="vibe-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Team</span>
-                <h2>Carbon Market Experts You Can Trust</h2>
-                <p>Deep technical and commercial expertise in voluntary carbon markets</p>
-            </div>
-
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Founder">
-                    </div>
-                    <div class="team-info">
-                        <h3>Rajesh Kumar</h3>
-                        <p class="team-title">Founder & Managing Director</p>
-                        <p class="team-bio">8+ years of experience in carbon project development and VCM trading. Previously led carbon strategy at a major renewable energy developer. Managed development of 250,000+ annual VCUs across 15+ projects.</p>
-                        <div class="team-credentials">
-                            <p><strong>Credentials:</strong></p>
-                            <ul>
-                                <li>Verra VCS Project Developer Certified</li>
-                                <li>Gold Standard Technical Assessor</li>
-                                <li>MBA, Environmental Management</li>
-                                <li>Speaker at Carbon Forward India 2024</li>
-                            </ul>
-                        </div>
-                        <a href="https://linkedin.com" target="_blank" class="team-linkedin">
-                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                        </a>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Technical Director">
-                    </div>
-                    <div class="team-info">
-                        <h3>Priya Sharma</h3>
-                        <p class="team-title">Technical Director</p>
-                        <p class="team-bio">10+ years in carbon project design and MRV systems. Expert in Verra methodologies across renewable energy, waste management, and AFOLU sectors. Led validation for 20+ projects totaling 500,000+ annual VCUs.</p>
-                        <div class="team-credentials">
-                            <p><strong>Credentials:</strong></p>
-                            <ul>
-                                <li>Verra VCS Methodology Expert</li>
-                                <li>Gold Standard Energy Expert</li>
-                                <li>M.Sc. Climate Change & Sustainability</li>
-                                <li>Published author on carbon additionality</li>
-                            </ul>
-                        </div>
-                        <a href="https://linkedin.com" target="_blank" class="team-linkedin">
-                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                        </a>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Commercial Director">
-                    </div>
-                    <div class="team-info">
-                        <h3>Amit Desai</h3>
-                        <p class="team-title">Commercial Director</p>
-                        <p class="team-bio">6+ years in VCM trading and corporate procurement. Built buyer network across manufacturing, cement, steel, and export sectors. Negotiated offtake agreements for 150,000+ credits annually.</p>
-                        <div class="team-credentials">
-                            <p><strong>Credentials:</strong></p>
-                            <ul>
-                                <li>Carbon Market Trading Specialist</li>
-                                <li>Corporate ESG Advisory Expert</li>
-                                <li>MBA, Finance & Commodities</li>
-                                <li>Member, Climate Action Network India</li>
-                            </ul>
-                        </div>
-                        <a href="https://linkedin.com" target="_blank" class="team-linkedin">
-                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="vibe-card reveal-up" data-vibe="solo" onclick="setVibe(this, 'solo')">
+          <div class="vibe-icon">🏔️</div>
+          <h3>Adventure Solo</h3>
+          <p>Hiking, paragliding, stargazing, and the silence of the Himalayan peaks</p>
+          <div class="vibe-tags">
+            <span>Trekking</span>
+            <span>Paragliding</span>
+            <span>Stargazing</span>
+          </div>
+          <div class="vibe-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
-    </section>
-
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="case-studies">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Case Studies</span>
-                <h2>Proven Results for Buyers & Developers</h2>
-                <p>Real outcomes from our carbon credit sourcing and project development work</p>
+      </div>
+      <div class="vibe-highlight" id="vibe-highlight">
+        <div class="vibe-hl-content family-content active">
+          <div class="hl-text">
+            <h3>The Perfect <em>Family Getaway</em></h3>
+            <p>Koti Resorts offers everything a family needs — from interconnected family suites with mountain views to guided nature walks that kids absolutely love. Our dedicated children's activity zone, safe swimming area, and family-friendly restaurant menu make us Shimla's #1 family resort.</p>
+            <ul class="hl-features">
+              <li><i class="fa-solid fa-check"></i> Interconnected Family Suites</li>
+              <li><i class="fa-solid fa-check"></i> Children's Activity Zone</li>
+              <li><i class="fa-solid fa-check"></i> Guided Family Nature Walks</li>
+              <li><i class="fa-solid fa-check"></i> Safe Kids' Pool Area</li>
+              <li><i class="fa-solid fa-check"></i> In-room Movie Setup</li>
+              <li><i class="fa-solid fa-check"></i> Early Check-in for Families</li>
+            </ul>
+            <a href="#rooms" class="btn-primary small">See Family Rooms</a>
+          </div>
+          <div class="hl-visual family-visual">
+            <div class="hl-img-stack">
+              <div class="hl-img img-1" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80')"></div>
+              <div class="hl-img img-2" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80')"></div>
             </div>
-
-            <div class="case-filter">
-                <button class="filter-btn active" data-filter="all">All Cases</button>
-                <button class="filter-btn" data-filter="buyers">Corporate Buyers</button>
-                <button class="filter-btn" data-filter="developers">Project Developers</button>
-            </div>
-
-            <div class="cases-grid">
-                <!-- Buyer Case Study 1 -->
-                <div class="case-card" data-category="buyers">
-                    <div class="case-badge case-badge-buyer">Corporate Buyer</div>
-                    <div class="case-industry">
-                        <i class="fas fa-industry"></i>
-                        <span>Cement Manufacturing</span>
-                    </div>
-                    <h3>Cement Company Scope 3 Offset Program</h3>
-                    <div class="case-profile">
-                        <p><strong>Client Profile:</strong> Mid-sized cement manufacturer | Annual production: 2.5 million tonnes | ESG Target: Net Zero Scope 3 by 2030</p>
-                    </div>
-                    <div class="case-challenge">
-                        <h4>Challenge</h4>
-                        <p>Company needed to offset 80,000 tCO2e annually from indirect emissions but had no carbon procurement experience or buyer network.</p>
-                    </div>
-                    <div class="case-solution">
-                        <h4>Our Solution</h4>
-                        <ul>
-                            <li>Conducted carbon footprint analysis and offset needs assessment</li>
-                            <li>Designed diversified portfolio: 60% renewable energy + 40% energy efficiency credits</li>
-                            <li>Sourced 80,000 VCUs annually from 5 projects (Verra VCS registry)</li>
-                            <li>Negotiated multi-year offtake agreement with 15% discount to spot market</li>
-                            <li>Provided ESG reporting support for CDP and GRI disclosures</li>
-                        </ul>
-                    </div>
-                    <div class="case-outcome">
-                        <h4>Outcome</h4>
-                        <div class="outcome-stats">
-                            <div class="outcome-stat">
-                                <strong>80,000 VCUs</strong>
-                                <span>Annual Credits Sourced</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>15% Below Market</strong>
-                                <span>Cost Savings Achieved</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>3-Year Contract</strong>
-                                <span>Supply Security</span>
-                            </div>
-                        </div>
-                        <p class="outcome-desc"><strong>Result:</strong> Achieved Net Zero Scope 3 target 2 years ahead of schedule at 15% below market pricing. Client secured stable 3-year supply with locked-in pricing.</p>
-                    </div>
-                </div>
-
-                <!-- Buyer Case Study 2 -->
-                <div class="case-card" data-category="buyers">
-                    <div class="case-badge case-badge-buyer">Corporate Buyer</div>
-                    <div class="case-industry">
-                        <i class="fas fa-hard-hat"></i>
-                        <span>Steel Manufacturing</span>
-                    </div>
-                    <h3>Steel Manufacturer Carbon Portfolio Strategy</h3>
-                    <div class="case-profile">
-                        <p><strong>Client Profile:</strong> Large integrated steel producer | Export-focused | Buyer requirement for carbon-neutral steel certification</p>
-                    </div>
-                    <div class="case-challenge">
-                        <h4>Challenge</h4>
-                        <p>European buyers demanded carbon-neutral steel certification. Company needed immediate access to 120,000 credits with nature-based co-benefits.</p>
-                    </div>
-                    <div class="case-solution">
-                        <h4>Our Solution</h4>
-                        <ul>
-                            <li>Developed blended portfolio strategy: 70% renewable energy + 30% AFOLU (afforestation)</li>
-                            <li>Sourced 120,000 VCUs across 6 projects (3 RE + 3 forestry)</li>
-                            <li>Prioritized Gold Standard credits for premium co-benefits and buyer perception</li>
-                            <li>Facilitated forward purchase agreements for next 2 vintages</li>
-                            <li>Supported carbon-neutral product labeling and marketing materials</li>
-                        </ul>
-                    </div>
-                    <div class="case-outcome">
-                        <h4>Outcome</h4>
-                        <div class="outcome-stats">
-                            <div class="outcome-stat">
-                                <strong>120,000 VCUs</strong>
-                                <span>Credits Sourced & Retired</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>Gold Standard</strong>
-                                <span>Premium Registry</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>30-Day</strong>
-                                <span>Delivery Timeline</span>
-                            </div>
-                        </div>
-                        <p class="outcome-desc"><strong>Result:</strong> Client met European buyer requirements, maintained export contracts worth $50M annually, and secured forward supply for next 2 years.</p>
-                    </div>
-                </div>
-
-                <!-- Developer Case Study 1 -->
-                <div class="case-card" data-category="developers">
-                    <div class="case-badge case-badge-developer">Project Developer</div>
-                    <div class="case-industry">
-                        <i class="fas fa-solar-panel"></i>
-                        <span>Renewable Energy</span>
-                    </div>
-                    <h3>50 MW Solar Power Project Development</h3>
-                    <div class="case-profile">
-                        <p><strong>Project Profile:</strong> 50 MW grid-connected solar | Location: Rajasthan | Developer: Independent power producer</p>
-                    </div>
-                    <div class="case-challenge">
-                        <h4>Challenge</h4>
-                        <p>Developer had operational solar project but no carbon credit registration experience. Needed end-to-end support from feasibility through monetization.</p>
-                    </div>
-                    <div class="case-solution">
-                        <h4>Our Solution</h4>
-                        <ul>
-                            <li>Conducted feasibility assessment: Estimated 82,000 VCUs annually over 25-year period</li>
-                            <li>Developed complete PDD using Verra ACM0002 methodology</li>
-                            <li>Coordinated validation with accredited VVB; achieved successful registration</li>
-                            <li>Set up MRV system and prepared first monitoring report</li>
-                            <li>Connected project with 2 corporate buyers; negotiated offtake agreement at $12/VCU</li>
-                        </ul>
-                    </div>
-                    <div class="case-outcome">
-                        <h4>Outcome</h4>
-                        <div class="outcome-stats">
-                            <div class="outcome-stat">
-                                <strong>82,000 VCUs</strong>
-                                <span>Annual Issuance</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>$984,000</strong>
-                                <span>Annual Revenue Potential</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>25 Years</strong>
-                                <span>Crediting Period</span>
-                            </div>
-                        </div>
-                        <p class="outcome-desc"><strong>Result:</strong> Project registered with Verra VCS. First 82,000 credits issued and sold at $12/VCU generating $984,000 revenue. 5-year offtake agreement secured.</p>
-                    </div>
-                </div>
-
-                <!-- Developer Case Study 2 -->
-                <div class="case-card" data-category="developers">
-                    <div class="case-badge case-badge-developer">Project Developer</div>
-                    <div class="case-industry">
-                        <i class="fas fa-recycle"></i>
-                        <span>Waste Management</span>
-                    </div>
-                    <h3>Municipal Biogas to Energy Project</h3>
-                    <div class="case-profile">
-                        <p><strong>Project Profile:</strong> 5 MW biogas from municipal solid waste | Location: Maharashtra | Developer: Waste management company</p>
-                    </div>
-                    <div class="case-challenge">
-                        <h4>Challenge</h4>
-                        <p>Waste-to-energy project needed Gold Standard certification to access premium buyers. Required methodology expertise for methane avoidance quantification.</p>
-                    </div>
-                    <div class="case-solution">
-                        <h4>Our Solution</h4>
-                        <ul>
-                            <li>Selected Gold Standard methodology for waste-to-energy with co-benefits</li>
-                            <li>Quantified methane avoidance from 150,000 tonnes annual waste processing</li>
-                            <li>Developed PDD emphasizing sustainable development co-benefits (health, jobs)</li>
-                            <li>Managed Gold Standard validation and registration process</li>
-                            <li>Marketed credits highlighting premium co-benefits to CSR-focused buyers</li>
-                        </ul>
-                    </div>
-                    <div class="case-outcome">
-                        <h4>Outcome</h4>
-                        <div class="outcome-stats">
-                            <div class="outcome-stat">
-                                <strong>38,000 Credits</strong>
-                                <span>Annual Issuance</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>$15/Credit</strong>
-                                <span>Premium Pricing</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>10 Years</strong>
-                                <span>Crediting Period</span>
-                            </div>
-                        </div>
-                        <p class="outcome-desc"><strong>Result:</strong> Gold Standard registration achieved. 38,000 credits issued annually with 25% premium pricing ($15 vs $12 market rate) due to co-benefits and registry quality.</p>
-                    </div>
-                </div>
-
-                <!-- Developer Case Study 3 -->
-                <div class="case-card" data-category="developers">
-                    <div class="case-badge case-badge-developer">Project Developer</div>
-                    <div class="case-industry">
-                        <i class="fas fa-tree"></i>
-                        <span>AFOLU</span>
-                    </div>
-                    <h3>Large-Scale Afforestation Project</h3>
-                    <div class="case-profile">
-                        <p><strong>Project Profile:</strong> 10,000 hectare afforestation | Location: Madhya Pradesh | Developer: Forestry management company</p>
-                    </div>
-                    <div class="case-challenge">
-                        <h4>Challenge</h4>
-                        <p>Complex AFOLU project required ARR methodology expertise, baseline carbon stock assessment, and long-term monitoring commitment.</p>
-                    </div>
-                    <div class="case-solution">
-                        <h4>Our Solution</h4>
-                        <ul>
-                            <li>Applied Verra AR-ACM0003 afforestation/reforestation methodology</li>
-                            <li>Conducted baseline carbon stock assessment on degraded land</li>
-                            <li>Designed 30-year monitoring plan with remote sensing + field verification</li>
-                            <li>Managed validation including site visit and stakeholder consultations</li>
-                            <li>Connected project with nature-based solution buyers seeking AFOLU credits</li>
-                        </ul>
-                    </div>
-                    <div class="case-outcome">
-                        <h4>Outcome</h4>
-                        <div class="outcome-stats">
-                            <div class="outcome-stat">
-                                <strong>125,000 VCUs</strong>
-                                <span>Annual Issuance Target</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>30 Years</strong>
-                                <span>Project Duration</span>
-                            </div>
-                            <div class="outcome-stat">
-                                <strong>$18/VCU</strong>
-                                <span>NBS Premium Pricing</span>
-                            </div>
-                        </div>
-                        <p class="outcome-desc"><strong>Result:</strong> Project registered with Verra VCS. First verification completed with 125,000 VCUs issued. Premium pricing of $18/VCU achieved for nature-based solution credits.</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Get In Touch</span>
-                <h2>Let's Discuss Your Carbon Credit Needs</h2>
-                <p>Whether you're sourcing credits or developing a project, we're here to help</p>
+        <div class="vibe-hl-content couple-content">
+          <div class="hl-text">
+            <h3>Romance Above the <em>Clouds</em></h3>
+            <p>Imagine waking up to snow-capped peaks, your partner by your side, a steaming cup of Himachali tea in hand. Our honeymoon suites are designed for intimacy — with private balconies, rose petal setups, and personal butler service that makes every moment unforgettable.</p>
+            <ul class="hl-features">
+              <li><i class="fa-solid fa-check"></i> Honeymoon Suite with Private Balcony</li>
+              <li><i class="fa-solid fa-check"></i> Couple's Spa & Massage</li>
+              <li><i class="fa-solid fa-check"></i> Candlelit Private Dining</li>
+              <li><i class="fa-solid fa-check"></i> Rose Petal Turndown Service</li>
+              <li><i class="fa-solid fa-check"></i> Bonfire Evenings</li>
+              <li><i class="fa-solid fa-check"></i> Surprise Anniversary Setup</li>
+            </ul>
+            <a href="#rooms" class="btn-primary small">See Romance Packages</a>
+          </div>
+          <div class="hl-visual couple-visual">
+            <div class="hl-img-stack">
+              <div class="hl-img img-1" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80')"></div>
+              <div class="hl-img img-2" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80')"></div>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Why Work With Us?</h3>
-                    <ul class="contact-benefits">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Dual-Sided Expertise</strong>
-                                <p>Unique understanding of both buyer needs and developer challenges</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Market Intelligence</strong>
-                                <p>Real-time pricing insights and supply-demand forecasting</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Verified Quality</strong>
-                                <p>Deep technical screening ensures high-integrity, low-risk credits</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>End-to-End Support</strong>
-                                <p>Complete lifecycle management from strategy to execution</p>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="contact-details">
-                        <div class="contact-detail-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <strong>Email</strong>
-                                <p>info@purecarbon.in</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Phone</strong>
-                                <p>+91 (0) 98765-43210</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <strong>Location</strong>
-                                <p>Mumbai, India</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form-wrapper">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="userType">I am a: *</label>
-                            <select id="userType" name="userType" required>
-                                <option value="">Select your role</option>
-                                <option value="corporate-buyer">Corporate Buyer (looking to purchase credits)</option>
-                                <option value="project-developer">Project Developer (looking to sell/develop credits)</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="company">Company/Organization *</label>
-                                <input type="text" id="company" name="company" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                        </div>
-                        
-                        <!-- Corporate Buyer Fields (shown conditionally) -->
-                        <div id="buyerFields" class="conditional-fields" style="display:none;">
-                            <div class="form-group">
-                                <label for="creditVolume">Estimated Annual Credit Volume Needed</label>
-                                <select id="creditVolume" name="creditVolume">
-                                    <option value="">Select volume range</option>
-                                    <option value="1000-10000">1,000 - 10,000 credits</option>
-                                    <option value="10000-50000">10,000 - 50,000 credits</option>
-                                    <option value="50000-100000">50,000 - 100,000 credits</option>
-                                    <option value="100000+">100,000+ credits</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="buyerInterest">Primary Interest</label>
-                                <select id="buyerInterest" name="buyerInterest">
-                                    <option value="">Select primary interest</option>
-                                    <option value="portfolio-strategy">Carbon portfolio strategy & planning</option>
-                                    <option value="credit-sourcing">Credit sourcing & procurement</option>
-                                    <option value="price-optimization">Price optimization & negotiation</option>
-                                    <option value="long-term-contracts">Long-term supply contracts</option>
-                                    <option value="esg-reporting">ESG reporting support</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Project Developer Fields (shown conditionally) -->
-                        <div id="developerFields" class="conditional-fields" style="display:none;">
-                            <div class="form-group">
-                                <label for="projectType">Project Type</label>
-                                <select id="projectType" name="projectType">
-                                    <option value="">Select project type</option>
-                                    <option value="renewable-energy">Renewable Energy (Solar, Wind, Hydro)</option>
-                                    <option value="waste-biogas">Waste Management & Biogas</option>
-                                    <option value="energy-efficiency">Energy Efficiency</option>
-                                    <option value="afolu">Agriculture & Forestry (AFOLU)</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="projectStage">Project Stage</label>
-                                <select id="projectStage" name="projectStage">
-                                    <option value="">Select project stage</option>
-                                    <option value="concept">Concept / Feasibility stage</option>
-                                    <option value="development">Under development</option>
-                                    <option value="operational">Operational (seeking registration)</option>
-                                    <option value="registered">Registered (seeking buyers)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message / Project Details *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Please provide details about your carbon credit needs or project..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span>Send Inquiry</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                        <div id="formMessage" class="form-message"></div>
-                    </form>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-leaf"></i>
-                        <span>Pure Carbon</span>
-                    </div>
-                    <p>Carbon credit sourcing, advisory, and trading platform connecting corporate buyers with project developers for high-integrity verified carbon credits.</p>
-                    <div class="footer-standards">
-                        <p><strong>Certified Standards:</strong></p>
-                        <p>Verra VCS | Gold Standard</p>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>For Buyers</h4>
-                    <ul>
-                        <li><a href="#for-buyers">Credit Sourcing</a></li>
-                        <li><a href="#for-buyers">Portfolio Strategy</a></li>
-                        <li><a href="#for-buyers">Price Optimization</a></li>
-                        <li><a href="#for-buyers">Long-Term Contracts</a></li>
-                        <li><a href="#contact">Request Assessment</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>For Developers</h4>
-                    <ul>
-                        <li><a href="#for-developers">Feasibility Assessment</a></li>
-                        <li><a href="#for-developers">PDD Development</a></li>
-                        <li><a href="#for-developers">MRV Support</a></li>
-                        <li><a href="#for-developers">Buyer Network Access</a></li>
-                        <li><a href="#contact">Start Project</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#why-us">Why Choose Us</a></li>
-                        <li><a href="#team">Our Team</a></li>
-                        <li><a href="#case-studies">Case Studies</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><i class="fas fa-envelope"></i> info@purecarbon.in</li>
-                        <li><i class="fas fa-phone"></i> +91 (0) 98765-43210</li>
-                    </ul>
-                </div>
+        <div class="vibe-hl-content solo-content">
+          <div class="hl-text">
+            <h3>Adventure Awaits the <em>Bold</em></h3>
+            <p>For those who hear the mountains calling — Koti Resorts is your base camp for Shimla's finest adventures. Trek through ancient cedar forests, paraglide above the valleys, or simply sit by a bonfire under a Himalayan sky full of stars. The mountains are yours.</p>
+            <ul class="hl-features">
+              <li><i class="fa-solid fa-check"></i> Guided Himalayan Treks</li>
+              <li><i class="fa-solid fa-check"></i> Paragliding Packages</li>
+              <li><i class="fa-solid fa-check"></i> Stargazing Sessions</li>
+              <li><i class="fa-solid fa-check"></i> Bonfire Nights</li>
+              <li><i class="fa-solid fa-check"></i> Mountain Biking Routes</li>
+              <li><i class="fa-solid fa-check"></i> Snow Activities (Winter)</li>
+            </ul>
+            <a href="#experiences" class="btn-primary small">Explore Adventures</a>
+          </div>
+          <div class="hl-visual solo-visual">
+            <div class="hl-img-stack">
+              <div class="hl-img img-1" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80')"></div>
+              <div class="hl-img img-2" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80')"></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Pure Carbon Advisory & Trading Platform. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                </div>
-            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="js/main.js"></script>
+  <!-- ============ ROOMS ============ -->
+  <section class="rooms" id="rooms">
+    <div class="rooms-bg-text">ROOMS</div>
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-tag">✦ Accommodations</div>
+        <h2 class="section-title">Your <em>Sanctuary</em> Awaits</h2>
+        <p class="section-desc">Every room is a window to the Himalayas. From cozy deluxe rooms to sprawling suites, find your perfect mountain nest.</p>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card reveal-up" data-badge="Most Popular">
+          <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80')">
+            <div class="room-overlay"></div>
+            <div class="room-badge">Most Popular</div>
+            <div class="room-hover-info">
+              <p>Sweeping valley views, king-size bed, private balcony & luxury bath</p>
+              <a href="#booking" class="btn-room">Reserve Now</a>
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-top">
+              <h3>Deluxe Valley View</h3>
+              <div class="room-price">
+                <span class="price-from">From</span>
+                <span class="price-val">₹7,500</span>
+                <span class="price-night">/night</span>
+              </div>
+            </div>
+            <div class="room-features">
+              <span><i class="fa-solid fa-bed"></i> King Bed</span>
+              <span><i class="fa-solid fa-mountain"></i> Valley View</span>
+              <span><i class="fa-solid fa-wifi"></i> Free WiFi</span>
+              <span><i class="fa-solid fa-snowflake"></i> AC</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-card large reveal-up" data-badge="Best for Couples">
+          <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80')">
+            <div class="room-overlay"></div>
+            <div class="room-badge couple">Best for Couples</div>
+            <div class="room-hover-info">
+              <p>Panoramic mountain suite with jacuzzi, fireplace & private deck</p>
+              <a href="#booking" class="btn-room">Reserve Now</a>
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-top">
+              <h3>Honeymoon Suite</h3>
+              <div class="room-price">
+                <span class="price-from">From</span>
+                <span class="price-val">₹14,500</span>
+                <span class="price-night">/night</span>
+              </div>
+            </div>
+            <div class="room-features">
+              <span><i class="fa-solid fa-heart"></i> Jacuzzi</span>
+              <span><i class="fa-solid fa-fire"></i> Fireplace</span>
+              <span><i class="fa-solid fa-champagne-glasses"></i> Butler</span>
+              <span><i class="fa-solid fa-eye"></i> 360° View</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-card reveal-up" data-badge="Family Fav">
+          <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80')">
+            <div class="room-overlay"></div>
+            <div class="room-badge family">Family Fav</div>
+            <div class="room-hover-info">
+              <p>Spacious interconnected rooms for the whole family with mountain views</p>
+              <a href="#booking" class="btn-room">Reserve Now</a>
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-top">
+              <h3>Family Suite</h3>
+              <div class="room-price">
+                <span class="price-from">From</span>
+                <span class="price-val">₹11,000</span>
+                <span class="price-night">/night</span>
+              </div>
+            </div>
+            <div class="room-features">
+              <span><i class="fa-solid fa-users"></i> 4 Guests</span>
+              <span><i class="fa-solid fa-tv"></i> Smart TV</span>
+              <span><i class="fa-solid fa-coffee"></i> Mini Bar</span>
+              <span><i class="fa-solid fa-mountain"></i> Hill View</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-card tall reveal-up" data-badge="Ultimate Luxury">
+          <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80')">
+            <div class="room-overlay"></div>
+            <div class="room-badge premium">Ultimate Luxury</div>
+            <div class="room-hover-info">
+              <p>The crown jewel of Koti — floor-to-ceiling glass walls, private pool & chef service</p>
+              <a href="#booking" class="btn-room">Reserve Now</a>
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-top">
+              <h3>Presidential Villa</h3>
+              <div class="room-price">
+                <span class="price-from">From</span>
+                <span class="price-val">₹28,000</span>
+                <span class="price-night">/night</span>
+              </div>
+            </div>
+            <div class="room-features">
+              <span><i class="fa-solid fa-swimming-pool"></i> Private Pool</span>
+              <span><i class="fa-solid fa-utensils"></i> Chef</span>
+              <span><i class="fa-solid fa-car"></i> Transfer</span>
+              <span><i class="fa-solid fa-gem"></i> Butler 24/7</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-card reveal-up">
+          <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80')">
+            <div class="room-overlay"></div>
+            <div class="room-badge solo">Solo Retreat</div>
+            <div class="room-hover-info">
+              <p>Cozy, well-appointed standard room with all modern comforts</p>
+              <a href="#booking" class="btn-room">Reserve Now</a>
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-top">
+              <h3>Classic Room</h3>
+              <div class="room-price">
+                <span class="price-from">From</span>
+                <span class="price-val">₹4,500</span>
+                <span class="price-night">/night</span>
+              </div>
+            </div>
+            <div class="room-features">
+              <span><i class="fa-solid fa-bed"></i> Queen Bed</span>
+              <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+              <span><i class="fa-solid fa-shower"></i> En-suite</span>
+              <span><i class="fa-solid fa-tv"></i> Smart TV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <span>✦ 4-Star Luxury</span>
+        <span>✦ Himalayan Views</span>
+        <span>✦ Spa & Wellness</span>
+        <span>✦ Fine Dining</span>
+        <span>✦ Adventure Activities</span>
+        <span>✦ Radisson Retreats Member</span>
+        <span>✦ Family Packages</span>
+        <span>✦ Honeymoon Specials</span>
+        <span>✦ 4-Star Luxury</span>
+        <span>✦ Himalayan Views</span>
+        <span>✦ Spa & Wellness</span>
+        <span>✦ Fine Dining</span>
+        <span>✦ Adventure Activities</span>
+        <span>✦ Radisson Retreats Member</span>
+        <span>✦ Family Packages</span>
+        <span>✦ Honeymoon Specials</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ EXPERIENCES ============ -->
+  <section class="experiences" id="experiences">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-tag">✦ Beyond the Room</div>
+        <h2 class="section-title">Live <em>Unforgettable</em> Moments</h2>
+        <p class="section-desc">The resort is just the beginning. The real magic happens when you step outside and let Shimla enchant you.</p>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal-up">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🧖‍♀️</div>
+          </div>
+          <h3>Himalayan Spa</h3>
+          <p>Ancient Ayurvedic therapies blended with modern wellness rituals. Surrender to the healing hands of our certified therapists.</p>
+          <a href="#" class="exp-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="exp-card reveal-up">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🏔️</div>
+          </div>
+          <h3>Mountain Treks</h3>
+          <p>Expert-guided treks through cedar forests to panoramic Himalayan viewpoints. Suitable for all fitness levels.</p>
+          <a href="#" class="exp-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="exp-card featured reveal-up">
+          <div class="exp-img" style="background-image: url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80')"></div>
+          <div class="exp-featured-content">
+            <div class="exp-icon">🌅</div>
+            <h3>Sunrise Yoga</h3>
+            <p>Begin your morning with guided yoga on our mountain-view terrace as the sun paints the Himalayas gold.</p>
+            <a href="#" class="exp-link white">Book Session <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="exp-card reveal-up">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🔥</div>
+          </div>
+          <h3>Bonfire Nights</h3>
+          <p>Under a sky blazing with stars, gather around a crackling bonfire with live folk music and Himachali chai.</p>
+          <a href="#" class="exp-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="exp-card reveal-up">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🪂</div>
+          </div>
+          <h3>Paragliding</h3>
+          <p>Soar above the valley from Shimla's famous launch sites. Our certified pilots ensure a safe, thrilling flight.</p>
+          <a href="#" class="exp-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="exp-card reveal-up">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🌿</div>
+          </div>
+          <h3>Organic Garden Tour</h3>
+          <p>Visit our in-house organic kitchen garden and learn about Himalayan herbs, spices and local produce.</p>
+          <a href="#" class="exp-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="exp-card reveal-up">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">⭐</div>
+          </div>
+          <h3>Stargazing</h3>
+          <p>7,000 feet above sea level, zero light pollution. Our astronomy guide will show you the universe like never before.</p>
+          <a href="#" class="exp-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="exp-card reveal-up">
+          <div class="exp-icon-wrap">
+            <div class="exp-icon">🚴</div>
+          </div>
+          <h3>Mountain Biking</h3>
+          <p>Rugged trails, mountain breezes, and adrenaline rushes. Rent premium bikes and conquer Shimla's hills.</p>
+          <a href="#" class="exp-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DINING ============ -->
+  <section class="dining" id="dining">
+    <div class="dining-bg" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80')"></div>
+    <div class="dining-overlay"></div>
+    <div class="container">
+      <div class="dining-content">
+        <div class="dining-text reveal-up">
+          <div class="section-tag light">✦ Flavours & Aromas</div>
+          <h2 class="section-title light">Dine with a <em>View</em></h2>
+          <p class="dining-desc">The Himalayas on one side, a plate of art on the other. Our executive chef crafts an inspired menu blending authentic Himachali flavours with continental fine dining — using only fresh, local ingredients.</p>
+          <div class="dining-features">
+            <div class="dining-feat">
+              <i class="fa-solid fa-utensils"></i>
+              <div>
+                <strong>Summit Restaurant</strong>
+                <span>Panoramic dining, 7 AM – 11 PM</span>
+              </div>
+            </div>
+            <div class="dining-feat">
+              <i class="fa-solid fa-glass-martini-alt"></i>
+              <div>
+                <strong>Cloud Bar & Lounge</strong>
+                <span>Cocktails & Mocktails, 5 PM – 1 AM</span>
+              </div>
+            </div>
+            <div class="dining-feat">
+              <i class="fa-solid fa-mug-hot"></i>
+              <div>
+                <strong>The Chai Terrace</strong>
+                <span>Himachali Chai & Snacks, All Day</span>
+              </div>
+            </div>
+            <div class="dining-feat">
+              <i class="fa-solid fa-fire-flame-curved"></i>
+              <div>
+                <strong>Bonfire BBQ Nights</strong>
+                <span>Saturdays & Special Events</span>
+              </div>
+            </div>
+          </div>
+          <a href="#booking" class="btn-primary">Reserve a Table</a>
+        </div>
+        <div class="dining-card-stack reveal-up">
+          <div class="dish-card">
+            <div class="dish-img" style="background-image: url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&q=80')"></div>
+            <div class="dish-info">
+              <h4>Trout Himachali Style</h4>
+              <span>Chef's Special</span>
+            </div>
+          </div>
+          <div class="dish-card">
+            <div class="dish-img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80')"></div>
+            <div class="dish-info">
+              <h4>Mountain Herb Lamb</h4>
+              <span>Signature Dish</span>
+            </div>
+          </div>
+          <div class="dish-card">
+            <div class="dish-img" style="background-image: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80')"></div>
+            <div class="dish-info">
+              <h4>Siddu with Ghee</h4>
+              <span>Himachali Tradition</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-tag">✦ Visual Stories</div>
+        <h2 class="section-title">Life at <em>Koti</em></h2>
+        <p class="section-desc">Every corner is a frame. Every moment is a memory. Share yours with #KotiResorts</p>
+      </div>
+      <div class="gallery-grid reveal-up">
+        <div class="gallery-item tall" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="gallery-item wide" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="gallery-item tall" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)" style="background-image: url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80')">
+          <div class="gallery-hover"><i class="fa-solid fa-expand"></i></div>
+        </div>
+      </div>
+      <div class="gallery-cta reveal-up">
+        <a href="https://www.instagram.com" target="_blank" class="btn-ghost dark">
+          <i class="fa-brands fa-instagram"></i>
+          <span>Follow @KotiResorts</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-inner">
+      <div class="lightbox-img" id="lightbox-img"></div>
+      <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-times"></i></button>
+    </div>
+  </div>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials">
+    <div class="testi-bg-text">REVIEWS</div>
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-tag">✦ Guest Stories</div>
+        <h2 class="section-title">What Our Guests <em>Say</em></h2>
+      </div>
+      <div class="swiper testi-swiper reveal-up">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Waking up to the Himalayas through floor-to-ceiling windows was the single most beautiful moment of my life. Koti Resorts is not just a hotel — it's a feeling. My husband and I will be back every anniversary."</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #D4A853, #FF6B6B)">P</div>
+                <div>
+                  <strong>Priya Sharma</strong>
+                  <span>Delhi · Honeymoon Guest</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Took my family of 5 here for summer holidays. The kids were absolutely in love with the nature walks and the bonfire nights. Staff was incredibly warm and attentive. The family suite had the most stunning sunrise view!"</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #7C9A7E, #0A7B83)">R</div>
+                <div>
+                  <strong>Rajesh Verma</strong>
+                  <span>Mumbai · Family Vacation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"As a solo traveller I was worried, but the staff made me feel completely at home. The stargazing session was mind-blowing! Paragliding with the Koti team was the most exhilarating experience. 10/10 would return!"</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #6C5CE7, #a29bfe)">A</div>
+                <div>
+                  <strong>Arjun Mehta</strong>
+                  <span>Bangalore · Solo Adventure</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"The Himalayan Spa was transcendent. I went in stressed from work and came out feeling reborn. The Trout Himachali Style at Summit Restaurant is the best meal I've ever eaten. Koti Resorts is pure magic."</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #D4A853, #e17055)">S</div>
+                <div>
+                  <strong>Sneha Kulkarni</strong>
+                  <span>Pune · Wellness Retreat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Celebrated our 10th wedding anniversary here. The team prepared a surprise rose-petal setup with a private candlelit dinner on our balcony. We cried happy tears. This place understands romance like no other."</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #FF6B6B, #ffeaa7)">K</div>
+                <div>
+                  <strong>Kavita & Manish</strong>
+                  <span>Hyderabad · Anniversary Stay</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination testi-pagination"></div>
+        <div class="swiper-button-prev testi-prev"></div>
+        <div class="swiper-button-next testi-next"></div>
+      </div>
+      <div class="testi-badges reveal-up">
+        <div class="t-badge"><i class="fa-brands fa-tripadvisor"></i> <span>TripAdvisor Excellence</span></div>
+        <div class="t-badge"><i class="fa-solid fa-medal"></i> <span>Best Hill Resort 2024</span></div>
+        <div class="t-badge"><i class="fa-solid fa-star"></i> <span>4.9 / 5 Rating</span></div>
+        <div class="t-badge"><i class="fa-solid fa-hotel"></i> <span>Radisson Retreats Member</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING FORM ============ -->
+  <section class="booking" id="booking">
+    <div class="booking-bg" style="background-image: url('https://images.unsplash.com/photo-1455587734955-081b22074882?w=1400&q=80')"></div>
+    <div class="booking-overlay"></div>
+    <div class="container">
+      <div class="booking-content reveal-up">
+        <div class="booking-text">
+          <div class="section-tag light">✦ Reserve Your Stay</div>
+          <h2 class="section-title light">Start Your <em>Escape</em></h2>
+          <p>Best rates guaranteed when you book directly. Use code <strong>KOTIMAGIC</strong> for 15% off your first stay.</p>
+          <div class="booking-perks">
+            <div class="perk"><i class="fa-solid fa-tag"></i> Best Price Guarantee</div>
+            <div class="perk"><i class="fa-solid fa-rotate-left"></i> Free Cancellation*</div>
+            <div class="perk"><i class="fa-solid fa-gift"></i> Complimentary Welcome Drink</div>
+            <div class="perk"><i class="fa-solid fa-clock"></i> Early Check-in (Subject to availability)</div>
+          </div>
+        </div>
+        <form class="booking-form" id="booking-form" onsubmit="submitBooking(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="+91 XXXXX XXXXX" />
+            </div>
+            <div class="form-group">
+              <label>Room Type</label>
+              <select>
+                <option>Classic Room</option>
+                <option>Deluxe Valley View</option>
+                <option>Family Suite</option>
+                <option>Honeymoon Suite</option>
+                <option>Presidential Villa</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Check In</label>
+              <input type="date" required />
+            </div>
+            <div class="form-group">
+              <label>Check Out</label>
+              <input type="date" required />
+            </div>
+          </div>
+          <div class="form-group full">
+            <label>Special Requests</label>
+            <textarea placeholder="Anniversary? Honeymoon surprise? Dietary needs? Tell us..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width">
+            <span>Confirm Booking Request</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <p class="form-note">* Our team will confirm within 2 hours via email/phone</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT & MAP ============ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <div class="section-tag">✦ Find Us</div>
+          <h2 class="section-title">Getting <em>Here</em></h2>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Address</strong>
+                <span>Koti Resorts, Kufri Road<br>Shimla, Himachal Pradesh – 171012, India</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <span>+91 177 265 0000<br>+91 98168 XXXXX</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <span>reservations@kotiresorts.com<br>info@kotiresorts.com</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-plane"></i></div>
+              <div>
+                <strong>Nearest Airport</strong>
+                <span>Jubbarhatti Airport, Shimla<br>~25 km · 45 min drive</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-social">
+            <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="contact-map reveal-up">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.0!2d77.1734!3d31.1048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3904e18448f3a1c9%3A0x5a10b62a0a04d76!2sShimla%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="logo-icon">✦</span>
+              <div>
+                <div class="logo-main">KOTI RESORTS</div>
+                <div class="logo-sub">Shimla, Himachal Pradesh</div>
+              </div>
+            </div>
+            <p>Where the Himalayas become your backyard. A 4-star luxury retreat perched at 7,000 ft, redefining mountain hospitality since 1985.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Your email for exclusive offers" />
+              <button>Get 10% Off</button>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#rooms">Rooms & Suites</a></li>
+              <li><a href="#experiences">Experiences</a></li>
+              <li><a href="#dining">Dining</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#booking">Book Now</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Experiences</h4>
+            <ul>
+              <li><a href="#">Himalayan Spa</a></li>
+              <li><a href="#">Mountain Treks</a></li>
+              <li><a href="#">Paragliding</a></li>
+              <li><a href="#">Bonfire Nights</a></li>
+              <li><a href="#">Stargazing</a></li>
+              <li><a href="#">Yoga & Wellness</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#">About Koti</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press & Media</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Cancellation Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2025 Koti Resorts Shimla. All Rights Reserved.</span>
+        <span>Member of <strong>Radisson Individuals Retreats</strong></span>
+        <span>Crafted with ❤️ for mountain lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BOOKING SUCCESS MODAL ============ -->
+  <div class="modal" id="success-modal">
+    <div class="modal-inner">
+      <div class="modal-icon">🏔️</div>
+      <h3>Booking Request Received!</h3>
+      <p>Thank you for choosing Koti Resorts. Our team will confirm your booking within 2 hours.</p>
+      <p class="modal-code">Use code <strong>KOTIMAGIC</strong> for 15% off!</p>
+      <button class="btn-primary" onclick="closeModal()">Perfect, Thank You!</button>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="modal-backdrop" onclick="closeModal()"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
